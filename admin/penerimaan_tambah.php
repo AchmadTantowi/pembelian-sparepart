@@ -20,11 +20,18 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Form Request Sparepart</h2>
+                                    <h2>Form Penerimaan Barang</h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <form class="form-horizontal form-label-left" action="form-request.php" method="POST">
+                                    <form class="form-horizontal form-label-left" action="penerimaan_tambah.php" method="POST">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">No. Invoice <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" name="no_invoice" required="required" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
                                         <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nama barang <span class="required">*</span>
                                             </label>
@@ -34,7 +41,15 @@
                                             </div>
                                         </div>
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Jumlah <span class="required">*</span>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nama suplier <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input class="form-control col-md-7 col-xs-12" name="nama_suplier" id="nama_suplier" required="required" type="text">
+                                                <input type="hidden" class="form-control" name="id_suplier" id="id_suplier" required/>
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Jumlah barang<span class="required">*</span>
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                 <input type="text" name="jumlah" required="required" class="form-control col-md-7 col-xs-12">
@@ -44,16 +59,18 @@
                                         <div class="form-group">
                                             <div class="col-md-6 col-md-offset-3">
                                                 <button type="submit" name="simpan" class="btn btn-success">Submit</button>
+                                                
                                             </div>
                                         </div>
                                      </form>
-    <!-- autocomplete -->
+<!-- autocomplete -->
 <script src="../js/jquery-1.10.2.js"></script>
 <script src="../js/jquery-ui-1.10.0.custom.js"></script>
 <!--end autocomplete -->
 
 <script>
 $(document).ready(function(){
+
   var ac_config = {
       source: "barang_cari.php",
       select: function(event, ui){
@@ -63,21 +80,39 @@ $(document).ready(function(){
       minLength:1
   };
   $("#nama_part").autocomplete(ac_config);
+
+  var ac_config2 = {
+      source: "suplier_cari.php",
+      select: function(event, ui){
+          $("#nama_suplier").val(ui.item.nama_suplier);
+          $("#id_suplier").val(ui.item.id_suplier);
+      },
+      minLength:1
+  };
+  $("#nama_suplier").autocomplete(ac_config2);
+
 });
 </script>
 <?php
 if(isset($_POST['simpan'])){
 
-$nik = $_SESSION['id'];
+$no_invoice  = $_POST['no_invoice'];
 $kode_part  = $_POST['kode_part'];
+$id_suplier  = $_POST['id_suplier'];
 $jumlah  = $_POST['jumlah'];
-$status = 'awaiting';
 
-$save = mysql_query("insert into form_request values ('', '$nik', '$kode_part', '$jumlah','$status')") or die (mysql_error());
-// echo "<script>swal('Claim terkirim', 'You clicked the button!', 'success');</script>";
-if ($save) {
-  echo "<script>swal('Success', 'Request send..', 'success');</script>";
-}
+$getStock = mysql_query("select * from barang where kode_part='$kode_part'");
+$getSum = mysql_fetch_array($getStock);
+$stock = $getSum['stok'];
+$updateStock = $stock + $jumlah;
+
+mysql_query("insert into penerimaan values ('$no_invoice', '$kode_part', '$id_suplier', '$jumlah')") or die (mysql_error());
+
+mysql_query("UPDATE barang SET stok ='$updateStock'
+                    WHERE kode_part ='$kode_part'") or die(mysql_error());
+
+echo "<script>swal('Success', 'Barang berhasil disimpan', 'success');</script>";
+
 
 }
 ?>

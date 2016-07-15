@@ -5,8 +5,8 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
-          </div>
+                        <a href="index.php" class="site_title"><img src="../images/logo_tuntex.jpg" width="50px" height="50px"> <span></span></a>
+                    </div>
           <div class="clearfix"></div>
             <?php include 'sidebar.php';?>
         </div>
@@ -50,14 +50,17 @@
                                     <?php
                                     if($dataku['status_request'] == 'awaiting'){
                                         echo "<button class='btn btn-default'>Awating</button>";
-                                    }else{
+                                    }elseif($dataku['status_request'] == 'accept'){
                                         echo "<button class='btn btn-success'>Accept</button>";
+                                    }else{
+                                        echo "<button class='btn btn-primary'>Canceled</button>";
                                     }
                                     ?>
                                 </td>
                                 <td class=" last">
-                                    <a href="request_edit.php?id=<?php echo $dataku['id_request']; ?>">Edit</a> |
-                                    <a href="request_delete.php?id=<?php echo $dataku['id_request']; ?>">Delete</a>
+                                    <a href="request_edit.php?id=<?php echo $dataku['id_request']; ?>">Change</a> 
+                                    <!-- |
+                                    <a href="request_delete.php?id=<?php echo $dataku['id_request']; ?>">Delete</a> -->
                                 </td>
                             </tr>
                         <?php

@@ -13,7 +13,7 @@ include "../config/koneksi.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentallela Alela! | </title>
+    <title>PT. Tuntex Garment Indonesia</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -27,6 +27,9 @@ include "../config/koneksi.php";
     <link rel="stylesheet" type="text/css" href="../css/maps/jquery-jvectormap-2.0.1.css" />
     <link href="../css/icheck/flat/green.css" rel="stylesheet">
     <link href="../css/datatables/tools/css/dataTables.tableTools.css" rel="stylesheet">
+    <!-- autocomplete -->
+    <link type="text/css" href="../css/excite-bike/jquery-ui-1.8.21.custom.css" rel="stylesheet" />
+    <!--end autocomplete -->
 
     <script src="../js/sweetalert-dev.js"></script>
     <link type="text/css" href="../js/sweetalert.css" rel="stylesheet" />

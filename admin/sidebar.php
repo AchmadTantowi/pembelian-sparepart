@@ -1,7 +1,7 @@
 <!-- menu prile quick info -->
 <div class="profile">
     <div class="profile_pic">
-        <img src="../images/img.jpg" alt="..." class="img-circle profile_img">
+        <img src="../images/user.png" alt="..." class="img-circle profile_img">
     </div>
     <div class="profile_info">
         <span>Welcome,</span>
@@ -30,11 +30,9 @@
             </li>
             <li><a><i class="fa fa-folder-open"></i> Transaksi <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
-                    <li><a href="general_elements.html">Pembelian</a>
-                    </li>
                     <li><a href="request.php">Request Barang</a>
                     </li>
-                    <li><a href="typography.html">Penerimaan</a>
+                    <li><a href="penerimaan.php">Penerimaan</a>
                     </li>
                 </ul>
             </li>

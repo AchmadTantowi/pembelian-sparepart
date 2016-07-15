@@ -5,8 +5,8 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
-          </div>
+                        <a href="index.php" class="site_title"><img src="../images/logo_tuntex.jpg" width="50px" height="50px"> <span></span></a>
+                    </div>
           <div class="clearfix"></div>
             <?php include 'sidebar.php';?>
         </div>
@@ -57,6 +57,9 @@ $data = mysql_fetch_array($query);
                             <option value="accept" <?php echo ($data['status_request'] == 'accept') ? 'selected' : ''; ?>>
                               Accept
                             </option>
+                            <option value="canceled" <?php echo ($data['status_request'] == 'canceled') ? 'selected' : ''; ?>>
+                              Canceled
+                            </option>
                           </select>
                         </div>
                       </div>
@@ -92,6 +95,12 @@ if(isset($_POST['update'])){
                     WHERE kode_part ='$kode_part'") or die(mysql_error());
 
     echo "<script>swal('Success', 'Request accept..', 'success');
+    window.location=(href='request.php')</script>";
+  } elseif($status_request == "canceled") {
+    mysql_query("UPDATE form_request SET status_request ='$status_request'
+                    WHERE id_request ='$id_request'") or die(mysql_error());
+
+    echo "<script>swal('Success', 'Request canceled..', 'success');
     window.location=(href='request.php')</script>";
   } else {
     echo "<script>sweetAlert('Oops...', 'Something went wrong!', 'error');
