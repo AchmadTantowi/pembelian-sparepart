@@ -57,7 +57,7 @@ $status_request = $_POST['status_request'];
   <tr>
     <td colspan="3">
 	<center>
-		<img src="../logo.jpg">
+		<img src="../images/logo_tuntex2.png">
 	</center>
 	</td>
   </tr>

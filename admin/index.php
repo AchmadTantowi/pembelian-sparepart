@@ -34,19 +34,21 @@ $totalHistoryCanceled = $getTotalRequestCanceled['total'];
             <div class="right_col" role="main">
                 <br />
                 <div class="">
+                    
+                    <?php
+                        $hasil = mysql_query("SELECT * FROM barang where stok <=2");
+                        while ($dataku = mysql_fetch_array($hasil)) {
+                    ?>
                     <div class="alert alert-danger alert-dismissible fade in" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-                        </button>
-                        Berikut stok barang yang kurang dari 2 pcs
-                        <?php
-                            $hasil = mysql_query("SELECT * FROM barang where stok <=2");
-                            while ($dataku = mysql_fetch_array($hasil)) {
-                        ?>
-                            <li><?php echo $dataku['nama_part'];?> stok : <?php echo $dataku['stok'];?></li>
-                        <?php
-                            }
-                        ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                    </button>
+                    Berikut stok barang yang kurang dari 2 pcs<br>
+                        <li><?php echo $dataku['nama_part'];?> stok : <?php echo $dataku['stok'];?></li>
                     </div>
+                    <?php
+                        }
+                    ?>
+                    
                     <div class="row top_tiles">
                     
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">

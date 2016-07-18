@@ -22,6 +22,7 @@
                     <h2>Data Suplier</h2>
                     <div class="clearfix"></div>
                 </div>
+                <a href="suplier_tambah.php" class="btn btn-primary">+ Tambah Suplier</a>
                 <div class="x_content">
                     <table id="example" class="table table-striped responsive-utilities jambo_table">
                         <thead>

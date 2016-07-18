@@ -22,6 +22,7 @@
                     <h2>Data Barang</h2>
                     <div class="clearfix"></div>
                 </div>
+                <a href="barang_tambah.php" class="btn btn-primary">+ Tambah Barang</a>
                 <div class="x_content">
                     <table id="example" class="table table-striped responsive-utilities jambo_table">
                         <thead>
@@ -30,6 +31,7 @@
                                 <th>No Part </th>
                                 <th>Nama Part </th>
                                 <th>Stok</th>
+                                <th>Harga</th>
                                 <th class=" no-link last"><span class="nobr">Action</span>
                                 </th>
                             </tr>
@@ -45,9 +47,10 @@
                                 <td class=" "><?php echo $dataku['kode_part'];?></td>
                                 <td class=" "><?php echo $dataku['nama_part'];?></td>
                                 <td class=" "><?php echo $dataku['stok'];?></td>
+                                <td class=" ">Rp. <?php echo format_angka($dataku['harga']);?></td>
                                 <td class=" last">
-                                    <a href="barang_edit.php?id=<?php echo $dataku['no_kartu']; ?>">Edit</a> |
-                                    <a href="barang_hapus.php?id=<?php echo $dataku['no_kartu']; ?>">Hapus</a>
+                                    <a href="barang_edit.php?id=<?php echo $dataku['kode_part']; ?>">Edit</a> |
+                                    <a href="barang_hapus.php?id=<?php echo $dataku['kode_part']; ?>">Hapus</a>
                                 </td>
                             </tr>
                         <?php

@@ -72,8 +72,8 @@ $nik = $_SESSION['id'];
 $kode_part  = $_POST['kode_part'];
 $jumlah  = $_POST['jumlah'];
 $status = 'awaiting';
-
-$save = mysql_query("insert into form_request values ('', '$nik', '$kode_part', '$jumlah','$status')") or die (mysql_error());
+$date_request = date('Y-m-d');
+$save = mysql_query("insert into form_request values ('', '$nik', '$kode_part', '$jumlah','$status','$date_request')") or die (mysql_error());
 // echo "<script>swal('Claim terkirim', 'You clicked the button!', 'success');</script>";
 if ($save) {
   echo "<script>swal('Success', 'Request send..', 'success');</script>";

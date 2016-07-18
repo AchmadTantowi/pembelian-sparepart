@@ -1,7 +1,9 @@
 <?php 
-// error_reporting(0);
+error_reporting(0);
 include '../cek_login.php';
 include "../config/koneksi.php";
+include "../config/library.php";
+include "../config/librari.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

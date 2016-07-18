@@ -22,6 +22,7 @@
                     <h2>Data Karyawan</h2>
                     <div class="clearfix"></div>
                 </div>
+                <a href="karyawan_tambah.php" class="btn btn-primary">+ Tambah Karyawan</a>
                 <div class="x_content">
                     <table id="example" class="table table-striped responsive-utilities jambo_table">
                         <thead>
