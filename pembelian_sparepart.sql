@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2016-07-16 06:00:32
+Date: 2016-07-18 08:57:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -22,16 +22,17 @@ CREATE TABLE `barang` (
   `kode_part` varchar(15) NOT NULL,
   `nama_part` varchar(100) NOT NULL,
   `stok` int(11) NOT NULL,
+  `harga` varchar(10) NOT NULL,
   PRIMARY KEY (`kode_part`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of barang
 -- ----------------------------
-INSERT INTO `barang` VALUES ('151890-001', 'Stopper Rubber', '2');
-INSERT INTO `barang` VALUES ('151951-001', 'Spring', '2');
-INSERT INTO `barang` VALUES ('152923-001', 'Thread Timmer Roller', '7');
-INSERT INTO `barang` VALUES ('153141-001', 'Roller Holder Cover', '10');
+INSERT INTO `barang` VALUES ('151890-001', 'Stopper Rubber', '10', '50000');
+INSERT INTO `barang` VALUES ('151951-001', 'Spring', '11', '50000');
+INSERT INTO `barang` VALUES ('152923-001', 'Thread Timmer Roller', '10', '50000');
+INSERT INTO `barang` VALUES ('153141-001', 'Roller Holder Cover', '10', '10000');
 
 -- ----------------------------
 -- Table structure for `form_request`
@@ -45,15 +46,12 @@ CREATE TABLE `form_request` (
   `status_request` varchar(20) NOT NULL,
   `date_request` date NOT NULL,
   PRIMARY KEY (`id_request`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of form_request
 -- ----------------------------
-INSERT INTO `form_request` VALUES ('2', '201502445', '151890-001', '2', 'accept', '2016-07-13');
-INSERT INTO `form_request` VALUES ('3', '201502445', '151951-001', '3', 'accept', '2016-07-13');
-INSERT INTO `form_request` VALUES ('4', '201502445', '152923-001', '3', 'canceled', '2016-07-14');
-INSERT INTO `form_request` VALUES ('5', '201502445', '153141-001', '3', 'awaiting', '2016-07-15');
+INSERT INTO `form_request` VALUES ('1', '201502445', '151951-001', '2', 'accept', '2016-07-18');
 
 -- ----------------------------
 -- Table structure for `karyawan`
@@ -72,7 +70,7 @@ CREATE TABLE `karyawan` (
 -- ----------------------------
 -- Records of karyawan
 -- ----------------------------
-INSERT INTO `karyawan` VALUES ('123456789', 'Bella', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'akunting', 'admin');
+INSERT INTO `karyawan` VALUES ('123456789', 'Bella', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'mekanik', 'admin');
 INSERT INTO `karyawan` VALUES ('199267245', 'Jajang Rihandi', 'jajang', '21232f297a57a5a743894a0e4a801fc3', 'mekanik', 'mekanik');
 INSERT INTO `karyawan` VALUES ('201502445', 'Owi', 'mekanik', '21232f297a57a5a743894a0e4a801fc3', 'mekanik', 'mekanik');
 
@@ -91,8 +89,7 @@ CREATE TABLE `penerimaan` (
 -- ----------------------------
 -- Records of penerimaan
 -- ----------------------------
-INSERT INTO `penerimaan` VALUES ('inv-001', '151890-001', '1', '5');
-INSERT INTO `penerimaan` VALUES ('inv-002', '151890-001', '1', '3');
+INSERT INTO `penerimaan` VALUES ('INV-001', '151951-001', '1', '3');
 
 -- ----------------------------
 -- Table structure for `suplier`
