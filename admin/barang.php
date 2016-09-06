@@ -23,12 +23,19 @@
                     <div class="clearfix"></div>
                 </div>
                 <a href="barang_tambah.php" class="btn btn-primary">+ Tambah Barang</a>
+                <div style="margin-bottom:15px;" align="right">
+                  <form action="" method="post">
+                   <input type="text" name="input_cari" placeholder="Cari Berdasar Nama Part" class="css-input" style="width:250px;" />
+                   <input type="submit" name="cari" value="Cari" class="btn" style="padding:3px;" margin="6px;" width="50px;"  />
+                   <a href="barang.php" class="btn" style="padding:3px;" margin="6px;" width="50px;">View All</a>
+                  </form>
+                 </div>
                 <div class="x_content">
                     <table id="example" class="table table-striped responsive-utilities jambo_table">
                         <thead>
                             <tr class="headings">
                                 <th>No</th>
-                                <th>No Part </th>
+                                <th>Kode Part </th>
                                 <th>Nama Part </th>
                                 <th>Stok</th>
                                 <th>Harga</th>
@@ -38,9 +45,29 @@
                         </thead>
                         <tbody>
                         <?php
+                            $input_cari = $_POST['input_cari']; 
+                           $cari = $_POST['cari'];
+                           if($cari) {
+
+                            if($input_cari != "") {
+                            $sql = mysql_query("select * from barang where nama_part like '%$input_cari%'") or die (mysql_error());   
+                            } else {
+                            $sql = mysql_query("select * from barang") or die (mysql_error());
+                            }
+                            } else {
+                            $sql = mysql_query("select * from barang") or die (mysql_error());
+                            }
+                            $cek = mysql_num_rows($sql);
+                           if($cek < 1) {
+                            ?>
+                             <tr> 
+                              <td colspan="7" align="center style="padding:10px;""> Data Tidak Ditemukan</td>
+                             </tr>
+                            <?php
+                           } else {
                             $nomor=1;
                             $hasil = mysql_query("SELECT * FROM barang");
-                            while ($dataku = mysql_fetch_array($hasil)) {
+                            while ($dataku = mysql_fetch_array($sql)) {
                         ?>
                             <tr class="even pointer">
                                 <td class=" "><?php echo $nomor++;?></td>
@@ -54,7 +81,7 @@
                                 </td>
                             </tr>
                         <?php
-                            }
+                            }}
                         ?>
                         </tbody>
                     </table>

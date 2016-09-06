@@ -47,7 +47,8 @@
                                     if($dataku['status_request'] == 'awaiting'){
                                         echo "<button class='btn btn-default'>Awating</button>";
                                     }elseif($dataku['status_request'] == 'accept'){
-                                        echo "<button class='btn btn-success'>Accept</button>";
+                                        echo "<button class='btn btn-success'>Accept</button><a href='cetak_pinjam_sparepart.php?id=".$dataku['id_request']."' target='_blank'>
+                        Cetak</a>";
                                     }else{
                                         echo "<button class='btn btn-primary'>Canceled</button>";
                                     }

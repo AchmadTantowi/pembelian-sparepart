@@ -79,7 +79,8 @@ $status_request = $_POST['status_request'];
 			<th><center>Nama Karyawan</center></th>
 			<th><center>Kode Part</center></th>
 			<th><center>Nama Barang</center></th>
-			<th><center>Jml Barang</center></th>	
+			<th><center>Jml Barang</center></th>
+			<th><center>Harga</center></th>	
 			<th><center>Status</center></th>
 		</tr>
 		</thead>		
@@ -99,12 +100,110 @@ $status_request = $_POST['status_request'];
 			<td><center><?php echo $dataku['kode_part'];?></center></td>
 			<td><center><?php echo $dataku['nama_part'];?></center></td>
 			<td><center><?php echo $dataku['jumlah'];?></center></td>
+			<td><center>Rp. <?php echo number_format($dataku['harga']);?></center></td>
 			<td><center><?php echo $dataku['status_request'];?></center></td>
 		</tr>
 		<?php } ?>
 		</tbody>
+		<tr>
+			<td></td>
+		</tr>
 	</table>
 	</td>
   </tr>
+    <tr>
+    <td>
+	    <table width="200" border="0" cellspacing="0" cellpadding="0" align="left">
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td>Tangerang, <?=date("d-m-Y"); ?></td>
+	      </tr>
+	      <tr>
+	        <td>Admin </td>
+	      </tr>
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td><u>
+			Nama Admin</u></td>
+	      </tr>
+	      <!-- <tr>
+	        <td>NIP. </td>
+	      </tr> -->
+	    </table>
+	    <table width="200" border="0" cellspacing="0" cellpadding="0" align="right">
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td>Supervisor </td>
+	      </tr>
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td><u>
+			Nama Supervisor</u></td>
+	      </tr>
+	      <!-- <tr>
+	        <td>NIP. </td>
+	      </tr> -->
+	    </table>
+	    <table width="200" border="0" cellspacing="0" cellpadding="0" align="center">
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td>Manajer </td>
+	      </tr>
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td>&nbsp;</td>
+	      </tr>
+	      <tr>
+	        <td><u>
+			Nama Manajer</u></td>
+	      </tr>
+	      <!-- <tr>
+	        <td>NIP. </td>
+	      </tr> -->
+	    </table>
+    </td>
+  	</tr>
   <input class="noPrint" type="button" value="Print" onclick="window.print()">
 </table>

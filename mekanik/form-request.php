@@ -30,7 +30,14 @@
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                 <input class="form-control col-md-7 col-xs-12" name="nama_part" id="nama_part" required="required" type="text">
-                                                <input type="hidden" class="form-control" name="kode_part" id="kode_part" required/>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Kode Part <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" class="form-control" name="kode_part" id="kode_part" required/>
                                             </div>
                                         </div>
                                         <div class="item form-group">
